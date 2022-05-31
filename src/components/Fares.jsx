@@ -19,6 +19,8 @@ const Fares = ({fares}) => {
 
   const getMonto = (block, minutes, total=0, end=false) => {
     const [nBl, tar, min, rep, next] = block;
+    if(minutes <=0 && next != nBl)
+        return;
     
     let repeat = Math.ceil(minutes/min)
         repeat = repeat > rep?rep:repeat;
