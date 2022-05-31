@@ -5,7 +5,6 @@ const Fares = ({fares}) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [montoTotal, setMontoTotal] = useState(0);
-  const [statusMonto, setStatusMonto] = useState(0);
 
   const handleMonto = () => {
       const fisrt = arrFares[0]
@@ -20,8 +19,6 @@ const Fares = ({fares}) => {
 
   const getMonto = (block, minutes, total=0, end=false) => {
     const [nBl, tar, min, rep, next] = block;
-    if(minutes <=0 && next != nBl)
-        return;
     
     let repeat = Math.ceil(minutes/min)
         repeat = repeat > rep?rep:repeat;
@@ -30,7 +27,7 @@ const Fares = ({fares}) => {
 
     setMontoTotal(t);
     if(minutes > 0 && !end)
-       getMonto(arrFares[next], (minutes - m), (total + (tar * repeat)), (next == nBl || minutes <= 0)); 
+       getMonto(arrFares[next], (minutes - m), (total + (tar * repeat)), minutes <= 0); 
   }  
 
   return(
