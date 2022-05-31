@@ -18,18 +18,22 @@ const Fares = ({fares}) => {
   },[hours])
 
   const getMonto = (block, minutes, total=0, end=false) => {
-    const [nBl, tar, min, rep, next] = block;
-    if(minutes <=0 && next != nBl)
+      console.log(total, end);
+    const [, tar, min, rep, next] = block;
+    if(end){
+        setMontoTotal(total);
         return;
+    }
     
     let repeat = Math.ceil(minutes/min)
         repeat = repeat > rep?rep:repeat;
     let m = min * repeat;
-    const t = total + Math.ceil(tar * repeat);
+    const t = total + (tar * repeat),
+          newMin = minutes - m;
 
-    setMontoTotal(t);
+    
     if(minutes > 0 && !end)
-       getMonto(arrFares[next], (minutes - m), (total + (tar * repeat)), minutes <= 0); 
+       getMonto(arrFares[next], newMin, t, newMin <= 0); 
   }  
 
   return(
