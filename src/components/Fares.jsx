@@ -21,6 +21,7 @@ const Fares = ({fares}) => {
   }
 
   const getMonto = () =>{
+    setMontoTotal = 
     setMontoTotal( () => updatedFares.reduce( (total, fare) => {
       const [nBlock, tarifa, , repeat, next] = fare;
       let t = total + (tarifa * repeat);
@@ -37,7 +38,7 @@ const Fares = ({fares}) => {
       {fares.map(fare => (
           <Fare key={fare[0]} fare={fare} handleUpdatesFares={handleUpdatesFares} />
       ))}
-      <p>Monto total: {montoTotal}</p>
+      <p className="text-gray-700 font-bold mb-5">Monto total: <span className="font-normal">{montoTotal}</span></p>
       <button 
         type="button"
         className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded"
