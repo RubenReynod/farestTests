@@ -21,7 +21,6 @@ const Fares = ({fares}) => {
   }
 
   const getMonto = () =>{
-    setMontoTotal = 
     setMontoTotal( () => updatedFares.reduce( (total, fare) => {
       const [nBlock, tarifa, , repeat, next] = fare;
       let t = total + (tarifa * repeat);
