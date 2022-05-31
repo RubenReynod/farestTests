@@ -16,7 +16,7 @@ const Fares = ({fares}) => {
         t += tarifa * repeat;
        
       return t;
-    },0) )
+    },0))
   }  
 
   return(
