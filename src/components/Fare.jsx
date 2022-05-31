@@ -11,7 +11,7 @@ const Fare = ({ fare, handleUpdatesFares }) => {
 
   return(
     <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl mb-5">
-        <label className="block text-gray-700 font-bold">Bloque {fare[0]}: </label>
+        <label className="block text-gray-700 font-bold">Tarifa bloque {fare[0]+1}: </label>
         <input 
             type="number"
             placeholder="Horas a cobrar"
