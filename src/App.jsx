@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Fares from "./components/Fares"
 
 const App = () => {
